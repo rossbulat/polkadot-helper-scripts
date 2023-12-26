@@ -35,7 +35,7 @@ export async function run() {
     console.log(`${stashes.length} payees to migrate. Accumulating batch tx.`);
 
     // Seperate batch transactions per `batchSize` stashes.
-    const batchSize = 50;
+    const batchSize = 200;
     const batches: any[] = [];
     while (stashes.length > 0) {
       batches.push(stashes.splice(0, batchSize));
