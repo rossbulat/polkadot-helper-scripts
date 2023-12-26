@@ -4,7 +4,8 @@
   "description": "Polkadot Helper Sripts",
   "main": "index.js",
   "scripts": {
-    "controllers": "tsup ./src/controllers.ts && node ./dist/controllers.js"
+    "controllers": "tsup ./src/controllers.ts && node ./dist/controllers.js",
+    "updatePayee": "tsup ./src/updatePayee.ts && node ./dist/updatePayee.js"
   },
   "author": "Ross Bulat",
   "license": "MIT",
