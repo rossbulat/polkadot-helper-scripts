@@ -1,8 +1,6 @@
-import fs, { promises } from 'fs';
 import { ApiPromise, WsProvider , Keyring} from '@polkadot/api';
 
 const createAccount = (phrase: string) => {
-  console.log(phrase);
   const keyring = new Keyring({ type: 'sr25519' });
   return keyring.addFromUri(phrase);
 }
@@ -32,6 +30,7 @@ export async function run() {
    .filter(([stash, payee]) => {
       return stash !== '' && payee === 'Controller'
     });
+
     console.log(`${stashes.length} payees to migrate. Accumulating batch tx.`);
 
     // Seperate batch transactions per `batchSize` stashes.
@@ -43,7 +42,7 @@ export async function run() {
 
     let nonce = 0;
     try {
-      // Get signers start nonce 
+      // Get signers start nonce.
       let accountData: any = (await api.query.system.account(account.address)).toHuman();
       nonce = accountData.nonce;
       console.log(nonce);

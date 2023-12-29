@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "controllers": "tsup ./src/controllers.ts && node ./dist/controllers.js",
-    "updatePayee": "tsup ./src/updatePayee.ts && node ./dist/updatePayee.js"
+    "updatePayee": "tsup ./src/updatePayee.ts && node ./dist/updatePayee.js",
+    "metadata": "tsup ./src/metadata.ts && node ./dist/metadata.js"
   },
   "author": "Ross Bulat",
   "license": "MIT",
