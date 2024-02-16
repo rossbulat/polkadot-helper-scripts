@@ -65,6 +65,10 @@ export async function run() {
       const countUniquePairs = uniquePairs?.length || 0;
       const percentageUnique = (countUniquePairs / bonded.length) * 100;
 
+      // TODO: write uniquePairs to new file.
+      await promises.writeFile(`unique-${network}.json`, JSON.stringify(uniquePairs.map((pair) => pair[1]), null, 2));
+
+
       let totalUniqueActive = 0;
      const res = await api.query.staking.ledger.multi(uniquePairs.map((pair: any) => pair[1]));
       for (let raw of res) {
