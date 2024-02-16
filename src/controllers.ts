@@ -1,29 +1,6 @@
 import fs, { promises } from 'fs';
 import { ApiPromise, WsProvider } from '@polkadot/api';
 
-/* LAST RUN:
-polkadot stats:
-Total records:  67173
-Unique pairs:  5890
-Percentage still unique:  8.77 %
-Unique pairs that are active:  5037
-Percentage of unique pairs that are active:  85.52 %
-
-kusama stats:
-Total records:  22092
-Unique pairs:  5596
-Percentage still unique:  25.33 %
-Unique pairs that are active:  5187
-Percentage of unique pairs that are active:  92.69 %
-
-westend stats:
-Total records:  72425
-Unique pairs:  751
-Percentage still unique:  1.04 %
-Unique pairs that are active:  671
-Percentage of unique pairs that are active:  89.35 %
-*/
-
 export async function run() {
   try {
 
