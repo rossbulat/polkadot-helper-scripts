@@ -2,18 +2,20 @@ import { ApiPromise, WsProvider , Keyring} from '@polkadot/api';
 
 const createAccount = (phrase: string) => {
   const keyring = new Keyring({ type: 'sr25519' });
+  keyring.setSS58Format(2);
   return keyring.addFromUri(phrase);
 }
-
 
 export async function run() {
   try {
     
-    // Westend only.
-    const wsProvider = new WsProvider('wss://westend-rpc.polkadot.io');
+    // Kusama only.
+    const wsProvider = new WsProvider('wss://kusama-rpc.polkadot.io');
     const api = await ApiPromise.create({ provider: wsProvider });
     
-    const account = createAccount(`${process.env.PHRASE || ''}//westend`);
+    const account = createAccount(`${process.env.PHRASE || ''}//kusama`);
+
+    console.log('using account: ', account.address);
 
     console.log('Getting payee entries...');
     // Get payee entries and filter those with `Controller` variant
@@ -39,6 +41,8 @@ export async function run() {
     while (stashes.length > 0) {
       batches.push(stashes.splice(0, batchSize));
     }
+
+    console.log(batches.length, 'batches');
 
     let nonce = 0;
     try {
@@ -92,9 +96,9 @@ export async function run() {
       }
     }
   
-  await api.disconnect();
+   await api.disconnect();
 
-} catch (err) {
+  } catch (err) {
     console.log(err)
     throw err
   }
