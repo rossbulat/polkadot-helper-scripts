@@ -11,7 +11,8 @@
   "author": "Ross Bulat",
   "license": "MIT",
   "dependencies": {
-    "@polkadot/api": "^10.11.1",
+    "@polkadot/api": "^11.0.3",
+    "@polkadot/rpc-provider": "^11.0.3",
     "tsup-node": "^0.1.0"
   },
   "devDependencies": {
