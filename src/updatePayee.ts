@@ -1,19 +1,21 @@
-import { ApiPromise, WsProvider , Keyring} from '@polkadot/api';
+import { ApiPromise , Keyring} from '@polkadot/api';
+import { WsProvider } from '@polkadot/rpc-provider';
 
 const createAccount = (phrase: string) => {
   const keyring = new Keyring({ type: 'sr25519' });
-  keyring.setSS58Format(2);
+  keyring.setSS58Format(0);
   return keyring.addFromUri(phrase);
 }
 
 export async function run() {
   try {
     
-    // Kusama only.
-    const wsProvider = new WsProvider('wss://kusama-rpc.polkadot.io');
-    const api = await ApiPromise.create({ provider: wsProvider });
+    // Polkadot only.
+    const wsProvider = new WsProvider('wss://apps-rpc.polkadot.io');
+    const api = new ApiPromise({ provider: wsProvider });
+    await api.isReady;
     
-    const account = createAccount(`${process.env.PHRASE || ''}//kusama`);
+    const account = createAccount(`${process.env.PHRASE || ''}//polkadot`);
 
     console.log('using account: ', account.address);
 
