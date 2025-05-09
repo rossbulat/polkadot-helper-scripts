@@ -4,11 +4,10 @@ import { ApiPromise, WsProvider } from '@polkadot/api';
 export async function run() {
   try {
 
-    const networks = ['polkadot', 'kusama', 'westend'];
+    const networks = ['polkadot', 'kusama'];
     const endpoints = {
       polkadot: 'wss://apps-rpc.polkadot.io',
       kusama: 'wss://kusama-rpc.polkadot.io',
-      westend: 'wss://westend-rpc.polkadot.io',
     }
 
     for (let network of networks ) {

@@ -9,7 +9,6 @@ const createAccount = (phrase: string) => {
 
 export async function run() {
   try {
-    
     // Polkadot only.
     const wsProvider = new WsProvider('wss://apps-rpc.polkadot.io');
     const api = new ApiPromise({ provider: wsProvider });
@@ -97,7 +96,6 @@ export async function run() {
         console.log(err);
       }
     }
-  
    await api.disconnect();
 
   } catch (err) {
