@@ -13,9 +13,11 @@
   "dependencies": {
     "@polkadot/api": "^11.0.3",
     "@polkadot/rpc-provider": "^11.0.3",
+    "dedot": "^0.9.5",
     "tsup-node": "^0.1.0"
   },
   "devDependencies": {
+    "@dedot/chaintypes": "^0.94.0",
     "ts-node": "^10.9.1"
   }
 }
